@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+# Setup script for setting up a new macos machine
+echo "Starting setup"
+# install xcode CLI
+xcode-select —-install
+
+# Check for Homebrew to be present, install if it's missing
+if test ! $(which brew); then
+    echo "Installing homebrew..."
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+# Update homebrew recipes
+brew update
+
+PACKAGES=(
+    stow
+    git
+    lazygit
+    tmux
+    tmuxinator
+    neovim
+    mysql
+    fzf
+    bat
+    zoxide
+    exa
+    fd
+    bottom
+    superfile
+    ctags
+    readline
+)
+
+echo "Installing packages..."
+brew install ${PACKAGES[@]}
+
+# Configure homebrew packages
+
+# link readline
+brew link --force readline
+
+# link bat
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
+
+# Homebrew cleanup
+echo "Cleaning up homebrew installation..."
+brew cleanup
+
+echo "Installing cask..."
+CASKS=(
+    iterm2
+    adobe-acrobat-reader
+    skype
+    slack
+    spotify
+    visual-studio-code
+    steam
+    1password
+)
+echo "Installing cask apps..."
+brew install --cask ${CASKS[@]}
+
+# Install additional tools
+mkdir ~/temp
+git clone https://github.com/tmux-plugins/tpm ~/temp/tpm
+# wait until stow
+curl -L git.io/antigen > $XDG_CONFIG_HOME/zsh/plugins/antigen.zsh
+
+
+git clone https://github.com/hcgraf/zsh-sudo.git ~/.config/zsh/plugins/zsh-sudo
+
+echo "Setup completed!
+

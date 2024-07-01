@@ -1,0 +1,8 @@
+[user]
+	email = wormikk@gmail.com
+	name = Igor Cervenka
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential]
+	helper = cache
