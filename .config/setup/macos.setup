@@ -11,6 +11,8 @@ if test ! $(which brew); then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+export PATH=/opt/homebrew/bin:$PATH
+
 # Update homebrew recipes
 brew update
 
@@ -82,7 +84,14 @@ echo "Installing cask apps..."
 brew install --cask ${CASKS[@]}
 
 # Install additional tools
+cd $HOME
+git clone https://github.com/icervenka/dotfiles.git
+cd dotfiles
+make
+rm ~/Makefile
 
+echo "export PATH=/opt/homebrew/bin:$PATH" >> $HOME/.zshrc
+echo "export PATH=/opt/homebrew/bin:$PATH" >> $HOME/.bashrc
 
 echo "Setup completed!"
 
