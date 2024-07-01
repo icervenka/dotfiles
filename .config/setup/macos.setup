@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Setup script for setting up a new macos machine
 echo "Starting setup"
@@ -8,7 +8,7 @@ xcode-select —-install
 # Check for Homebrew to be present, install if it's missing
 if test ! $(which brew); then
     echo "Installing homebrew..."
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Update homebrew recipes
@@ -25,10 +25,11 @@ PACKAGES=(
     fzf
     bat
     zoxide
-    exa
+    eza
     fd
     bottom
     superfile
+    r
     ctags
     readline
 )
@@ -42,8 +43,8 @@ brew install ${PACKAGES[@]}
 brew link --force readline
 
 # link bat
-mkdir -p ~/.local/bin
-ln -s /usr/bin/batcat ~/.local/bin/bat
+# mkdir -p ~/.local/bin
+# ln -s /usr/bin/batcat ~/.local/bin/bat
 
 # Homebrew cleanup
 echo "Cleaning up homebrew installation..."
@@ -51,26 +52,37 @@ brew cleanup
 
 echo "Installing cask..."
 CASKS=(
-    iterm2
+    alfred
+    languagetool
+    1password
+    rectangle
+    espanso
+    vlc
+    obsidian
+    arc
+    opera-gx
+    dropzone
+    alacritty
+    miniforge
+    table-tool
+    rstudio
+    transnomino
     adobe-acrobat-reader
     skype
     slack
     spotify
     visual-studio-code
-    steam
-    1password
+    affinity-designer
+    affinity-photo
+    affinity-publisher
+    zoom
+    appcleaner
 )
 echo "Installing cask apps..."
 brew install --cask ${CASKS[@]}
 
 # Install additional tools
-mkdir ~/temp
-git clone https://github.com/tmux-plugins/tpm ~/temp/tpm
-# wait until stow
-curl -L git.io/antigen > $XDG_CONFIG_HOME/zsh/plugins/antigen.zsh
 
 
-git clone https://github.com/hcgraf/zsh-sudo.git ~/.config/zsh/plugins/zsh-sudo
-
-echo "Setup completed!
+echo "Setup completed!"
 
