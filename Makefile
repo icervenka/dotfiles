@@ -1,9 +1,9 @@
 # stow_dirs = $(wildcard */)
 .PHONY : stow
 stow :
-	stow --target $(HOME) --verbose --restow .
+	stow --target $(HOME) --verbose --restow --adopt .
 
-.PHONY : stow-verbose
+.PHONY : restow
 # verbosity goes from 0 to 4
 VERBOSITY=1
 stow-verbose :
