@@ -11,6 +11,21 @@ end
 
 local packer_bootstrap = ensure_packer()
 
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+	return
+end
+
+-- Have packer use a popup window
+packer.init({
+	display = {
+		open_fn = function()
+			return require("packer.util").float({ border = "rounded" })
+		end,
+	},
+})
+
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
@@ -40,7 +55,6 @@ return require('packer').startup(function(use)
     use 'neovim/nvim-lspconfig'
 
     -- Syntax Highlighting
-    --  use 'nvim-treesitter/nvim-treesitter'
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
@@ -51,8 +65,17 @@ return require('packer').startup(function(use)
     -- Fuzzy Finder
     use {'nvim-telescope/telescope.nvim', tag = '0.1.8', requires = 'nvim-lua/plenary.nvim' }
 
-    use {'ThePrimeagen/harpoon', requires = 'nvim-lua/plenary.nvim' }
+    -- use {'ThePrimeagen/harpoon', requires = {'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim'} }
 
+    use 'chentoast/marks.nvim'
+
+    use 'echasnovski/mini.pairs'
+
+    use 'echasnovski/mini.surround'
+
+    use "lukas-reineke/indent-blankline.nvim"
+
+    -- Code completion and snippets
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'

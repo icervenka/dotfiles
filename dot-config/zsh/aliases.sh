@@ -31,3 +31,6 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 alias reload-zsh="source ~/.zshrc"
 alias edit-zsh="nvim ~/.zshrc"
 alias ts="tmuxinator start"
+alias cona="conda activate"
+alias cond="conda deactivate"
+alias conl="conda env list"

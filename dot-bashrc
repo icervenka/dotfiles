@@ -7,9 +7,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CONFIG_CACHE="$HOME/.cache"
 
 # Source other related files ---------------------------------------------------
-[ -f  $XDG_CONFIG_HOME/zsh/aliases ] && source $XDG_CONFIG_HOME/bash/aliases 
-[ -f  $XDG_CONFIG_HOME/zsh/exports ] && source $XDG_CONFIG_HOME/bash/exports 
-[ -f  $XDG_CONFIG_HOME/zsh/functions ] && source $XDG_CONFIG_HOME/bash/functions 
+[ -f  $XDG_CONFIG_HOME/zsh/aliases.sh ] && source $XDG_CONFIG_HOME/bash/aliases.sh 
+[ -f  $XDG_CONFIG_HOME/zsh/exports.sh ] && source $XDG_CONFIG_HOME/bash/exports.sh 
+[ -f  $XDG_CONFIG_HOME/zsh/functions.sh ] && source $XDG_CONFIG_HOME/bash/functions.sh 
 
 # add brew to path -------------------------------------------------------------
 eval "$(/opt/homebrew/bin/brew shellenv)" 

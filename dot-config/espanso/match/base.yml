@@ -1,0 +1,29 @@
+# espanso match file
+matches:
+  # Print the current date
+  - trigger: ";date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y%m%d"
+
+  # Print the output of a shell command
+  - trigger: ";shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo 'Hello from your shell'"
+
+  # Simple text replacement
+  - trigger: ";br"
+    replace: "Best regards,\n\nIgor Cervenka"
+
+  - trigger: ";p"
+    replace: "proj"
+
+
+  # And much more! For more information, visit the docs: https://espanso.org/docs/

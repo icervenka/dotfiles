@@ -15,3 +15,5 @@ export DOTFILES="$HOME/code/dotfiles"
 export PATH="/usr/local/bin":"/snap/bin":$PATH
 export PATH="$HOME/.local/bin":$PATH
 export PATH=/opt/homebrew/bin:$PATH
+
+export CONFIG=$XDG_CONFIG_HOME
