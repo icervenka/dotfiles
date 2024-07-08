@@ -7,8 +7,8 @@ local map = vim.keymap.set
 map("i", "kj", "<ESC>", { desc = "Exit insert mode with kj" })
 map("v", "kj", "<ESC>", { desc = "Exit insert mode with kj" })
 
-map("v", "<Enter>", "o<ESC>", { desc = "Insert blank line after in normal mode" })
-map("v", "<Enter>", "O<ESC>", { desc = "Insert blank line before in normal mode" })
+map({"n", "v"}, "<Enter>", "o<ESC>", { desc = "Insert blank line after in normal mode" })
+-- map("n", "<Enter>", "O<ESC>", { desc = "Insert blank line before in normal mode" })
 
 map("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
@@ -110,10 +110,3 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 
--- local harpoon = require("harpoon")
-
--- -- REQUIRED
--- harpoon:setup({})
--- -- REQUIRED
--- vim.keymap.set("n", "<leader>fm", function() toggle_telescope(harpoon:list()) end,
---     { desc = "Open harpoon window" })

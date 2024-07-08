@@ -30,6 +30,7 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    -- Icons for nvimtree
     use 'nvim-tree/nvim-web-devicons'
 
     -- File Explorer
@@ -44,6 +45,7 @@ return require('packer').startup(function(use)
     -- Git Integration
     use 'tpope/vim-fugitive'
 
+    -- Comment plugin
     use {
         'numToStr/Comment.nvim',
         config = function()
@@ -60,21 +62,6 @@ return require('packer').startup(function(use)
         run = ':TSUpdate'
     }
 
-    use "nvim-lua/plenary.nvim"
-
-    -- Fuzzy Finder
-    use {'nvim-telescope/telescope.nvim', tag = '0.1.8', requires = 'nvim-lua/plenary.nvim' }
-
-    -- use {'ThePrimeagen/harpoon', requires = {'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim'} }
-
-    use 'chentoast/marks.nvim'
-
-    use 'echasnovski/mini.pairs'
-
-    use 'echasnovski/mini.surround'
-
-    use "lukas-reineke/indent-blankline.nvim"
-
     -- Code completion and snippets
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
@@ -83,6 +70,37 @@ return require('packer').startup(function(use)
     use 'hrsh7th/nvim-cmp'
     use 'saadparwaiz1/cmp_luasnip'
 
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
+
+    -- Plugin for working with R
+    use "R-nvim/R.nvim"
+    use "R-nvim/cmp-r"
+    
+    -- Fuzzy finder
+    use 'junegunn/fzf.vim'
+
+    -- Various lua functions
+    use "nvim-lua/plenary.nvim"
+
+    -- Fuzzy file finder
+    use {'nvim-telescope/telescope.nvim', 
+        tag = '0.1.8', 
+        requires = 'nvim-lua/plenary.nvim' }
+
+    -- Plugin for managing marks
+    use 'chentoast/marks.nvim'
+
+    -- Autoclose brackets and other chars
+    use 'echasnovski/mini.pairs'
+
+    -- surround text with characters
+    use 'echasnovski/mini.surround'
+
+    -- Display indentation levels (useful for python)
+    use "lukas-reineke/indent-blankline.nvim"
+
+    -- Display keymap combinations
     use {
         "folke/which-key.nvim",
         config = function()
@@ -92,9 +110,8 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- Nvim theme
     use { "catppuccin/nvim", as = "catppuccin" }
-
-    use 'junegunn/fzf.vim'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

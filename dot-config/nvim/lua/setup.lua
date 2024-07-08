@@ -22,20 +22,32 @@ require('lualine').setup {
     }
 }
 
-require("bufferline").setup{}
+require("bufferline").setup{
+    options = {
+        offsets = {
+            {
+                filetype = "NvimTree",
+                text = "File Explorer",
+                highlight = "Directory",
+                text_align = "left",
+            }
+        },
+    }
+}
+
+
+local lspconfig = require'lspconfig'
+lspconfig.r_language_server.setup{}
+-- lspconfig.pyright.setup{}  -- Example for Python LSP
 
 require'nvim-treesitter.configs'.setup {
     ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", 
-    "heex", "javascript", "html", "r", "python", "snakemake", "yaml" },
+    "heex", "javascript", "html", "r", "rnoweb", "markdown", "python", "snakemake", "yaml" },
 
     highlight = {
         enable = true,
     },
 }
-
-local lspconfig = require'lspconfig'
-lspconfig.r_language_server.setup{}
--- lspconfig.pyright.setup{}  -- Example for Python LSP
 
 local cmp = require'cmp'
 
@@ -98,31 +110,12 @@ require('lspconfig')['r_language_server'].setup {
     capabilities = capabilities
 }
 
--- -- require("harpoon").setup()
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = {"r_language_server", "pyright"}
+})
 
--- local harpoon = require('harpoon')
--- harpoon.setup({})
 
--- -- basic telescope configuration
--- local conf = require("telescope.config").values
--- local function toggle_telescope(harpoon_files)
---     local file_paths = {}
---     for _, item in ipairs(harpoon_files.items) do
---         table.insert(file_paths, item.value)
---     end
-
---     require("telescope.pickers").new({}, {
---         prompt_title = "Harpoon",
---         finder = require("telescope.finders").new_table({
---             results = file_paths,
---         }),
---         previewer = conf.file_previewer({}),
---         sorter = conf.generic_sorter({}),
---     }):find()
--- end
-
--- -- vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end,
--- --     { desc = "Open harpoon window" })
 
 require'marks'.setup {
     -- whether to map keybinds or not. default true

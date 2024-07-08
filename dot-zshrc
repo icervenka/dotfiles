@@ -9,8 +9,8 @@ export XDG_CONFIG_CACHE="$HOME/.cache"
 
 # Source other related files ---------------------------------------------------
 [ -f  $XDG_CONFIG_HOME/zsh/aliases.sh ] && source $XDG_CONFIG_HOME/zsh/aliases.sh
-[ -f  $XDG_CONFIG_HOME/zsh/exports.sh ] && source $XDG_CONFIG_HOME/zsh/exports.sh 
-[ -f  $XDG_CONFIG_HOME/zsh/functions.sh ] && source $XDG_CONFIG_HOME/zsh/functions.sh 
+[ -f  $XDG_CONFIG_HOME/zsh/exports.sh ] && source $XDG_CONFIG_HOME/zsh/exports.sh
+[ -f  $XDG_CONFIG_HOME/zsh/functions.sh ] && source $XDG_CONFIG_HOME/zsh/functions.sh
 
 # p10k setup -------------------------------------------------------------------
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
