@@ -1,12 +1,5 @@
 #!/bin/zsh
 
-# TODO fix exa/eza for unix and macos
-# if 
-#     export LS_TOOL='eza'
-# else
-#     export LS_TOOL='exa'
-# fi
-
 # general use eza aliases
 alias ls='eza --icons'
 alias l='eza -F -lbh --icons'
@@ -31,6 +24,8 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 alias reload-zsh="source ~/.zshrc"
 alias edit-zsh="nvim ~/.zshrc"
 alias ts="tmuxinator start"
+alias txkill="tmux kill-session"
+alias txkilla="tmux kill-session -a"
 alias cona="conda activate"
 alias cond="conda deactivate"
 alias conl="conda env list"

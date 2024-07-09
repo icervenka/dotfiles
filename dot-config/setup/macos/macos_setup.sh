@@ -24,8 +24,6 @@ if test ! $(which brew); then
 fi
 
 # Make shell find brew
-# (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> $HOME/.zshrc
-# (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> $HOME/.bashrc
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Update homebrew recipes
@@ -37,6 +35,10 @@ brew bundle --force --file macos_Brewfile
 # Homebrew cleanup
 echo "Cleaning up homebrew installation..."
 brew cleanup
+
+# Change default options for MacOS
+chmod 744 macos_options.sh
+source macos_options.sh 
 
 # Install additional tools
 # vim plugin manager
