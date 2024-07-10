@@ -29,3 +29,7 @@ alias txkilla="tmux kill-session -a"
 alias cona="conda activate"
 alias cond="conda deactivate"
 alias conl="conda env list"
+
+# aliases to login to sciCORE servers
+alias logubu="ssh cerven0000@login12.scicore.unibas.ch"
+alias logcent="ssh cerven0000@login.scicore.unibas.ch"

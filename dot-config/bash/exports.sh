@@ -12,3 +12,6 @@ export PATH="/usr/local/bin":"/snap/bin":$PATH
 export PATH="$HOME/.local/bin":$PATH
 export DOTFILES="$HOME/code/dotfiles"
 
+export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=1
+
+export CONFIG=$XDG_CONFIG_HOME
