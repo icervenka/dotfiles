@@ -30,6 +30,9 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    -- plugin to move from nvim into tmux windows
+    use "christoomey/vim-tmux-navigator"
+
     -- Icons for nvimtree
     use 'nvim-tree/nvim-web-devicons'
 

@@ -9,6 +9,14 @@ matches:
         params:
           format: "%Y%m%d"
 
+  - trigger: ";ddate"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%d.%m.%Y"
+
   # Print the output of a shell command
   - trigger: ";shell"
     replace: "{{output}}"
@@ -65,5 +73,41 @@ matches:
   - trigger: ";obstodo"
     replace: "## <mark style='background: #BBFABBA6;'> ToDo</mark>"
 
-  # And much more! For more information, visit the docs: https://espanso.org/docs/
-  #
+  - trigger: ";rch"
+    replace: "```{r }\n\n```\n"
+
+  - trigger: ";cdmartiniv"
+    replace: "/scicore/home/martiniv/GROUP/bioinfo"
+
+  - trigger: ";cdivanek"
+    replace: "/scicore/home/ivanek/GROUP/"
+
+  - trigger: ";cdhome"
+    replace: "/scicore/home/ivanek/cerven0000/"
+
+  - trigger: ";irobert"
+    replace: "Robert Ivanek (robert.ivanek@unibas.ch)"
+
+  - trigger: ";ianastasiya"
+    replace: "Anastasiya Börsch (anastasiya.boersch@unibas.ch)"
+
+  - trigger: ";idominik"
+    replace: "Dominik Burri (dominik.burri@unibas.ch)"
+
+  - trigger: ";iigor"
+    replace: "Igor Cervenka (igor.cervenka@unibas.ch)"
+
+  - trigger: ";iathimed"
+    replace: "Athimed El Taher (athimed.eltaher@unibas.ch)"
+
+  - trigger: ";ijulien"
+    replace: "Julien Roux (julien.roux@unibas.ch)"
+
+  - trigger: ";iflorian"
+    replace: "Florian Geier (florian.geier@unibas.ch)"
+
+  - trigger: ";snakemake_cluster"
+    replace: "snakemake --use-conda --profile scicore-slurm -p --rerun-incomplete --conda-prefix ~/snakemake_environments"
+
+  - trigger: ";snakemake_envs"
+    replace: "snakemake  --conda-create-envs-only --use-conda --conda-prefix ~/snakemake_environments"

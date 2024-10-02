@@ -123,4 +123,3 @@ fi
 # <<< conda initialize <<<
 
 
-test -e /Users/igor/.iterm2_shell_integration.zsh && source /Users/igor/.iterm2_shell_integration.zsh || true

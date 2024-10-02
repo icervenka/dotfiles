@@ -39,6 +39,4 @@ alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --color-scale'
 alias lS='exa -1'
 alias lt='exa --tree --level=2'
 
-# aliases to login to sciCORE servers
-alias logubu="ssh cerven0000@login12.scicore.unibas.ch"
-alias logcent="ssh cerven0000@login.scicore.unibas.ch"
+

@@ -36,8 +36,8 @@ require("bufferline").setup{
 }
 
 
-local lspconfig = require'lspconfig'
-lspconfig.r_language_server.setup{}
+-- local lspconfig = require'lspconfig'
+-- lspconfig.r_language_server.setup{}
 -- lspconfig.pyright.setup{}  -- Example for Python LSP
 
 require'nvim-treesitter.configs'.setup {
@@ -49,6 +49,7 @@ require'nvim-treesitter.configs'.setup {
     },
 }
 
+
 local cmp = require'cmp'
 
 cmp.setup({
@@ -56,10 +57,10 @@ cmp.setup({
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
             -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
             -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
             -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-            -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+            vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
         end,
     },
     window = {
@@ -74,9 +75,9 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
-        -- { name = 'nvim_lsp' },
+        { name = 'nvim_lsp' },
         -- { name = 'vsnip' }, -- For vsnip users.
-        { name = 'luasnip' }, -- For luasnip users.
+        -- { name = 'luasnip' }, -- For luasnip users.
         -- { name = 'ultisnips' }, -- For ultisnips users.
         -- { name = 'snippy' }, -- For snippy users.
     }, {
@@ -105,16 +106,19 @@ cmp.setup.cmdline(':', {
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig')['r_language_server'].setup {
-    capabilities = capabilities
+
+require('lspconfig').pylsp.setup {
+  capabilities = capabilities,
+}
+
+require('lspconfig').r_language_server.setup {
+  capabilities = capabilities,
 }
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = {"r_language_server", "pyright"}
+    ensure_installed = {"r_language_server", "pylsp"}
 })
-
 
 
 require'marks'.setup {

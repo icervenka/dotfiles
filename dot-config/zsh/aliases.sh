@@ -30,6 +30,24 @@ alias cona="conda activate"
 alias cond="conda deactivate"
 alias conl="conda env list"
 
+alias mama="mamba activate"
+alias mamd="mamba deactivate"
+alias maml="mamba env list"
+
 # aliases to login to sciCORE servers
-alias logubu="ssh cerven0000@login12.scicore.unibas.ch"
-alias logcent="ssh cerven0000@login.scicore.unibas.ch"
+alias mountw9group="sshfs -o defer_permissions cerven0000@worker09.scicore.unibas.ch:/scicore/home/ivanek /Users/igor/Server"
+alias unmountgroup="umount -f /Users/igor/Server"
+
+alias mountw9home="sshfs -o defer_permissions cerven0000@worker09.scicore.unibas.ch:/scicore/home/ivanek/cerven0000 /Users/igor/Server_home"
+alias unmounthome="umount -f /Users/igor/Server_home"
+
+alias mountw9scicore="sshfs -o defer_permissions cerven0000@worker09.scicore.unibas.ch:/scicore/home /Users/igor/Server_scicore"
+alias unmountscicore="umount -f /Users/igor/Server_scicore"
+
+alias mounttransfer="sshfs -o defer_permissions cerven0000@transfer12.scicore.unibas.ch:/scicore/home/ivanek/cerven0000 /Users/igor/Server_transfer"
+alias unmounttransfer="umount -f /Users/igor/Server_transfer"
+
+# alias mountw9="sshfs -o defer_permissions cerven0000@worker09.scicore.unibas.ch:/scicore/home/ivanek/cerven0000 ~/Server"
+# alias unmount="umount -f Server"
+# alias logubu="ssh cerven0000@login12.scicore.unibas.ch"
+# alias logcent="ssh cerven0000@login.scicore.unibas.ch"

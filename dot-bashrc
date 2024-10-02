@@ -139,6 +139,8 @@ alias cd="z"
 # End of basic setup -----------------------------------------------------------
 # Lines after this point are added by programs installed later
 
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
