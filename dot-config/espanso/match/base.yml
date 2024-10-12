@@ -76,13 +76,16 @@ matches:
   - trigger: ";rch"
     replace: "```{r }\n\n```\n"
 
-  - trigger: ";cdmartiniv"
-    replace: "/scicore/home/martiniv/GROUP/bioinfo"
+  - regex: ";cd(?P<group>\\w+);"
+    replace: "/scicore/home/{{group}}/GROUP/bioinfo"
 
-  - trigger: ";cdivanek"
-    replace: "/scicore/home/ivanek/GROUP/"
+  # - trigger: ";cdmartiniv"
+  #   replace: "/scicore/home/martiniv/GROUP/bioinfo"
 
-  - trigger: ";cdhome"
+  # - trigger: ";cdivanek"
+  #   replace: "/scicore/home/ivanek/GROUP/"
+
+  - trigger: ";home"
     replace: "/scicore/home/ivanek/cerven0000/"
 
   - trigger: ";irobert"
@@ -111,3 +114,9 @@ matches:
 
   - trigger: ";snakemake_envs"
     replace: "snakemake  --conda-create-envs-only --use-conda --conda-prefix ~/snakemake_environments"
+
+  - trigger: ";col"
+    replace: "colData(sce)"
+
+  - trigger: ";row"
+    replace: "rowData(sce)"

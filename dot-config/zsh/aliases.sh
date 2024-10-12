@@ -44,8 +44,8 @@ alias unmounthome="umount -f /Users/igor/Server_home"
 alias mountw9scicore="sshfs -o defer_permissions cerven0000@worker09.scicore.unibas.ch:/scicore/home /Users/igor/Server_scicore"
 alias unmountscicore="umount -f /Users/igor/Server_scicore"
 
-alias mounttransfer="sshfs -o defer_permissions cerven0000@transfer12.scicore.unibas.ch:/scicore/home/ivanek/cerven0000 /Users/igor/Server_transfer"
-alias unmounttransfer="umount -f /Users/igor/Server_transfer"
+alias mounttransfer="sshfs -o defer_permissions cerven0000@transfer12.scicore.unibas.ch:/scicore/home/ivanek/ /Users/igor/Server_transfer"
+alias unmounttransfer="umount -f /users/igor/server_transfer"
 
 # alias mountw9="sshfs -o defer_permissions cerven0000@worker09.scicore.unibas.ch:/scicore/home/ivanek/cerven0000 ~/Server"
 # alias unmount="umount -f Server"
